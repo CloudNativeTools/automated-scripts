@@ -21,18 +21,23 @@ jobs:
       - run: |
           COMMITID=$(git log --no-merges -n1 | grep ^commit | awk -F " " '{print $2}')
           FILE=$(git diff-tree --no-commit-id --name-only -r $COMMITID |grep rules)
-      
-          while IFS= read -r line; do
-            IFS="=>" read -r -a fields <<< "$line"
-            
-            src=${fields[0]}
-            src=${src##*( )}
-            src=${src%%*( )}
-
-            dst=${fields[1]}
-            dst=${dst##*( )}
-            dst=${dst%%*( )}
-
-            echo "skopeo copy docker://${src}  docker://${dst} --all"
-
-          done < "$file_path"
+          
+          if [ -z "$FILE" ]; then
+            echo "No rules file changed"
+            exit 0
+          else
+              while IFS= read -r line; do
+                IFS="=>" read -r -a fields <<< "$line"
+                
+                src=${fields[0]}
+                src=${src##*( )}
+                src=${src%%*( )}
+    
+                dst=${fields[1]}
+                dst=${dst##*( )}
+                dst=${dst%%*( )}
+    
+                echo "skopeo copy docker://${src}  docker://${dst} --all"
+    
+              done < "$file_path"
+          fi
