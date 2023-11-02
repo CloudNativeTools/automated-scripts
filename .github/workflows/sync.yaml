@@ -16,7 +16,7 @@ jobs:
 
       - run: |
           sudo apt update -y
-          sudo apt install skopeo git -y
+          sudo apt install skopeo -y
 
       - run: |
           FILE=$(git diff --name-only HEAD~1)
@@ -39,5 +39,5 @@ jobs:
         
                     echo "skopeo copy docker://${src}  docker://${dst} --all"
                 fi
-              done < "$file_path"
+              done < "$FILE"
           fi
