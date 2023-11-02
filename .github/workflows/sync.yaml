@@ -16,7 +16,7 @@ jobs:
 
       - run: |
           sudo apt update -y
-          sudo apt install skopeo -y
+          sudo apt install skopeo git -y
 
       - run: |
           FILE=$(git diff --name-only HEAD~1)
