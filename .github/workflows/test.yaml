@@ -16,31 +16,10 @@ jobs:
           fetch-depth: 0
 
       - run: |
-          echo echo "${{ github.event.issue.body }}" > issue.txt
-          git config --global user.email "ci-bot@kubesphere.io"
-          git config --global user.name "ci-bot"
-
-      - name: Create Branch
-        run: git checkout -b issue-${{ github.event.issue.number }}
-  
-      - name: Add Changes to Branch
-        run: git add issue.txt
-  
-      - name: Commit Changes
-        run: git commit -m "Add issue content"
-  
-      - name: Push Changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          branch: issue-${{ github.event.issue.number }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
-
-      - name: Checkout Branch
-        run: git checkout main
+          echo echo "${{ github.event.issue.body }}" > ${{ github.event.issue.number }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: issue-${{ github.event.issue.number }}
