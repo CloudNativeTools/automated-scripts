@@ -19,25 +19,25 @@ jobs:
           sudo apt install skopeo -y
 
       - run: |
-          COMMITID=$(git log --no-merges -n1 | grep ^commit | awk -F " " '{print $2}')
-          FILE=$(git diff-tree --no-commit-id --name-only -r $COMMITID |grep rules)
+          FILE=$(git diff --name-only HEAD~1)
           
           if [ -z "$FILE" ]; then
             echo "No rules file changed"
             exit 0
           else
               while IFS= read -r line; do
-                IFS="=>" read -r -a fields <<< "$line"
-                
-                src=${fields[0]}
-                src=${src##*( )}
-                src=${src%%*( )}
-    
-                dst=${fields[1]}
-                dst=${dst##*( )}
-                dst=${dst%%*( )}
-    
-                echo "skopeo copy docker://${src}  docker://${dst} --all"
-    
+                if [[ $line == *" => "* ]]; then
+                    IFS="=>" read -r -a fields <<< "$line"
+                    
+                    src=${fields[0]}
+                    src=${src##*( )}
+                    src=${src%%*( )}
+        
+                    dst=${fields[1]}
+                    dst=${dst##*( )}
+                    dst=${dst%%*( )}
+        
+                    echo "skopeo copy docker://${src}  docker://${dst} --all"
+                fi
               done < "$file_path"
           fi
