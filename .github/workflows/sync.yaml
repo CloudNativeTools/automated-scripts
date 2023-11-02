@@ -51,9 +51,11 @@ jobs:
 
           curl "WECHAT_WEBHOOK" \
               -H 'Content-Type: application/json' \
-              -d '{
+              -d '
+              {
                   "msgtype": "markdown",
                   "markdown": {
                     "content": "$message"
                   }
               }'
+
