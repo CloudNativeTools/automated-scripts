@@ -15,8 +15,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: |
-          echo "${{ github.event.issue.body }}" > ${{ github.event.issue.number }}
+      - name: Get issue content
+        run: |
+          echo "${{ github.event.issue.body }}" > issue-${{ github.event.issue.number }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -30,4 +31,23 @@ jobs:
           assignees: pixiake
           reviewers: pixiake
 
+      - name: Send WeChat Notification
+        env:
+          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+          STATUS: ${{ job.status }}
+        run: |
+          if [[ $STATUS == 'success' ]]; then
+             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 中镜像已同步"
+          else
+             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 中镜像同步失败"
+
+          curl "WECHAT_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d '
+              {
+                  "msgtype": "markdown",
+                  "markdown": {
+                    "content": "$message"
+                  }
+              }'
 

@@ -14,11 +14,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: |
+      - name: Install skopeo
+        run: |
           sudo apt update -y
           sudo apt install skopeo -y
 
-      - run: |
+      - name: Get changed files
+        run: |
           FILE=$(git diff --name-only HEAD~1)
           
           if [ -z "$FILE" ]; then
@@ -26,18 +28,33 @@ jobs:
             exit 0
           else
               while IFS= read -r line; do
-                if [[ $line == *" => "* ]]; then
-                    IFS="=>" read -r -a fields <<< "$line"
-                    
-                    src=${fields[0]}
-                    src=${src##*( )}
-                    src=${src%%*( )}
-        
-                    dst=${fields[1]}
-                    dst=${dst##*( )}
-                    dst=${dst%%*( )}
-        
+                echo $line
+                if [[ $line == *"=>"* ]]; then
+                    src=$(echo "$line" | awk -F "=>" '{print $1}' | awk '{$1=$1};1')
+                    dst=$(echo "$line" | awk -F "=>" '{print $2}' | awk '{$1=$1};1')
                     echo "skopeo copy docker://${src}  docker://${dst} --all"
                 fi
               done < "$FILE"
           fi
+
+      - name: Send WeChat Notification
+        env:
+          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+          STATUS: ${{ job.status }}
+        run: |
+          FILE=$(git diff --name-only HEAD~1)
+          id=$(echo "$FILE" | awk -F "/" '{print $2}' | awk '{$1=$1};1')
+          if [[ $STATUS == 'success' ]]; then
+             message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像同步请求已提交"
+          else
+             message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像同步请求提交失败"
+
+          curl "WECHAT_WEBHOOK" \
+              -H 'Content-Type: application/json' \
+              -d '
+              {
+                  "msgtype": "markdown",
+                  "markdown": {
+                    "content": "$message"
+                  }
+              }'
