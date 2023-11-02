@@ -15,8 +15,8 @@ jobs:
           fetch-depth: 0
 
       - run: |
-          apt update -y
-          apt install skopeo -y
+          sudo apt update -y
+          sudo apt install skopeo -y
 
       - run: |
           # Get the last non-merge pull request commit
