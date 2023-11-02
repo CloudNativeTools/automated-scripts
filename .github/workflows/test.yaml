@@ -41,7 +41,7 @@ jobs:
           else
              message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 中镜像同步失败"
           fi
-          curl "WECHAT_WEBHOOK" \
+          curl "${ WECHAT_WEBHOOK }" \
               -H 'Content-Type: application/json' \
               -d '
               {
