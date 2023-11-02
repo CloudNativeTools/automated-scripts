@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -35,15 +35,20 @@ jobs:
           branch: issue-${{ github.event.issue.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-          
+
+      - name: Checkout Branch
+        run: git checkout main
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: issue-${{ github.event.issue.number }}
           title: "Adding issue content"
           body: |
             This pull request adds the content of the issue to a file.      
           delete-branch: true
+          assignees: pixiake
+          reviewers: pixiake
 
 
