@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - run: |
-          echo echo "${{ github.event.issue.body }}" > ${{ github.event.issue.number }}
+          echo "${{ github.event.issue.body }}" > ${{ github.event.issue.number }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5

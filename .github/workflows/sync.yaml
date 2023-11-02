@@ -1,0 +1,42 @@
+---
+name: sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: |
+          apt update -y
+          apt install skopeo -y
+
+      - run: |
+          # Get the last non-merge pull request commit
+          COMMITID=$(git log --no-merges -n1 | grep ^commit | awk -F " " '{print $2}')
+          # Only need to sync images that changed in current commit
+          FILE=$(git diff-tree --no-commit-id --name-only -r $COMMITID |grep rules)
+      
+          # 逐行读取文件内容
+          while IFS= read -r line; do
+            # 使用分割符 "=>" 进行分割
+            IFS="=>" read -r -a fields <<< "$line"
+            
+            src=${fields[0]}
+            src=${src##*( )}
+            src=${src%%*( )}
+
+            dst=${fields[1]}
+            dst=${dst##*( )}
+            dst=${dst%%*( )}
+
+            echo "skopeo copy docker://${src}  docker://${dst} --all"
+
+          done < "$file_path"
