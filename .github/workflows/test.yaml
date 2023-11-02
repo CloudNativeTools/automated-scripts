@@ -16,6 +16,8 @@ jobs:
 
       - run: |
           echo echo "${{ github.event.issue.body }}" > issue.txt
+          git config --global user.email "ci-bot@kubesphere.io"
+          git config --global user.name "ci-bot"
 
       - name: Create Branch
         run: git checkout -b issue-${{ github.event.issue.number }}
