@@ -37,9 +37,9 @@ jobs:
           STATUS: ${{ job.status }}
         run: |
           if [[ $STATUS == 'success' ]]; then
-             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 中镜像已同步"
+             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 镜像同步请求已提交"
           else
-             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 中镜像同步失败"
+             message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 镜像同步请求提交失败"
           fi
           curl "${WECHAT_WEBHOOK}" \
               -H 'Content-Type: application/json' \
@@ -50,4 +50,3 @@ jobs:
                     "content": "'"$message"'"
                   }
               }'
-
