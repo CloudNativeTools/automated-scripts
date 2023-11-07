@@ -40,8 +40,8 @@ jobs:
                 if [[ $line == *"=>"* ]]; then
                     src=$(echo "$line" | awk -F "=>" '{print $1}' | awk '{$1=$1};1')
                     dst=$(echo "$line" | awk -F "=>" '{print $2}' | awk '{$1=$1};1')
-                    echo "skopeo copy docker://${src}  docker://${dst} --all"
-                    skopeo copy docker://${src}  docker://${dst} --all
+                    echo "skopeo copy --all docker://${src}  docker://${dst}"
+                    skopeo copy --all docker://${src}  docker://${dst} 
                 fi
               done < "$FILE"
           fi
