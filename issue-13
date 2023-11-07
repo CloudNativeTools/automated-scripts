@@ -1,0 +1,6 @@
+docker.io/kubespheredev/ks-apiserver:v3.4.1 => docker.io/kubesphere/ks-apiserver:v3.4.1 
+docker.io/kubespheredev/ks-controller-manager:v3.4.1 => docker.io/kubesphere/ks-controller-manager:v3.4.1 
+docker.io/kubespheredev/ks-console:v3.4.1 => docker.io/kubesphere/ks-console:v3.4.1 
+docker.io/kubespheredev/devops-tools:v3.4.2 => docker.io/kubesphere/devops-tools:ks-v3.4.1
+docker.io/kubespheredev/devops-apiserver:v3.4.2 => docker.io/kubesphere/devops-apiserver:ks-v3.4.1
+docker.io/kubespheredev/devops-controller:v3.4.2 =>  docker.io/kubesphere/devops-controller:ks-v3.4.1
