@@ -23,7 +23,8 @@ jobs:
           sudo mv oras-install/oras /usr/local/bin/
           rm -rf oras_${VERSION}_*.tar.gz oras-install/
 
-      - name: Get changed files
+      - name: Sync Image
+        id: sync_image
         run: |
           FILE=$(git diff --name-only HEAD~1)
           
@@ -47,18 +48,33 @@ jobs:
               done < "$FILE"
           fi
 
+      - name: Get Issue ID
+        id: get_issue_id
+        run: |
+          FILE=$(git diff --name-only HEAD~1)
+          id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
+          echo "::set-output name=id::$id"
+
+      - name: Close Issue
+        if: ${{ steps.sync_image.outcome }} == 'success'
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ steps.get_issue_id.outputs.id }}
+          comment: Auto-closing issue
+
       - name: Send WeChat Notification
+        if: always()
         env:
           WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-          STATUS: ${{ job.status }}
+          STATUS: ${{  steps.sync_image.outcome }}
         run: |
           FILE=$(git diff --name-only HEAD~1)
           id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
           if [[ -n $id ]]; then
               if [[ $STATUS == 'success' ]]; then
-                 message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像已同步"
+                 message="镜像已同步完成[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }})已关闭"
               else
-                 message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像同步失败"
+                 message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 中镜像同步失败"
               fi
               curl "${WECHAT_WEBHOOK}" \
                   -H 'Content-Type: application/json' \

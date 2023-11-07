@@ -20,6 +20,7 @@ jobs:
           echo "${{ github.event.issue.body }}" > issue-${{ github.event.issue.number }}
 
       - name: Create Pull Request
+        id: create_pull_request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -30,9 +31,10 @@ jobs:
           delete-branch: true
 
       - name: Send WeChat Notification
+        if: always()
         env:
           WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-          STATUS: ${{ job.status }}
+          STATUS: ${{ steps.create_pull_request.outcome }}
         run: |
           if [[ $STATUS == 'success' ]]; then
              message="[issue-${{ github.event.issue.number }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ github.event.issue.number }}) 镜像同步请求已提交"
