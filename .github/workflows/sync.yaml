@@ -44,8 +44,12 @@ jobs:
                 if [[ $line == *"=>"* ]]; then
                     src=$(echo "$line" | awk -F "=>" '{print $1}' | awk '{$1=$1};1')
                     dst=$(echo "$line" | awk -F "=>" '{print $2}' | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r')
-                    echo "oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
-                    oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    if [[ $dst == *"aliyuncs.com"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
+                    elif [[ $dst == *"docker.io"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    fi
+                    
                 fi
               done < "$FILE"
           fi
@@ -56,7 +60,7 @@ jobs:
           STATUS: ${{ job.status }}
         run: |
           FILE=$(git diff --name-only HEAD~1)
-          id=$(echo "$FILE" | awk -F "/" '{print $2}' | awk '{$1=$1};1')
+          id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
           if [[ $STATUS == 'success' ]]; then
              message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像已同步"
           else
