@@ -61,18 +61,20 @@ jobs:
         run: |
           FILE=$(git diff --name-only HEAD~1)
           id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
-          if [[ $STATUS == 'success' ]]; then
-             message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像已同步"
-          else
-             message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像同步失败"
+          if [[ -n $id ]]; then
+              if [[ $STATUS == 'success' ]]; then
+                 message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像已同步"
+              else
+                 message="[issue$id](https://github.com/CloudNativeTools/automated-scripts/issues/$id) 镜像同步失败"
+              fi
+              curl "${WECHAT_WEBHOOK}" \
+                  -H 'Content-Type: application/json' \
+                  -d '
+                  {
+                      "msgtype": "markdown",
+                      "markdown": {
+                        "content": "'"$message"'"
+                      }
+                  }'
           fi
-          curl "${WECHAT_WEBHOOK}" \
-              -H 'Content-Type: application/json' \
-              -d '
-              {
-                  "msgtype": "markdown",
-                  "markdown": {
-                    "content": "'"$message"'"
-                  }
-              }'
 
