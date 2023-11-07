@@ -28,8 +28,6 @@ jobs:
           body: |
             This pull request adds the content of the issue to a file.      
           delete-branch: true
-          assignees: pixiake
-          reviewers: pixiake
 
       - name: Send WeChat Notification
         env:
