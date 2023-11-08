@@ -72,9 +72,9 @@ jobs:
           id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
           if [[ -n $id ]]; then
               if [[ $STATUS == 'success' ]]; then
-                 message="镜像已同步完成[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }})已关闭"
+                 message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 已关闭，镜像同步已完成，"
               else
-                 message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 中镜像同步失败"
+                 message="镜像同步失败，请检查 [issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }})"
               fi
               curl "${WECHAT_WEBHOOK}" \
                   -H 'Content-Type: application/json' \
