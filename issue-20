@@ -1,0 +1,7 @@
+registry.cn-beijing.aliyuncs.com/kse/ks-installer:kse-release-3.5-cebbank  =>   artifactory-public.com/evercloud-docker-local/kse-3-5/ks-installer:kse-release-3.5-cebbank-20231107
+registry.cn-beijing.aliyuncs.com/kse/ks-apiserver:kse-release-3.5-cebbank@sha256:7e94602f8720cbcc15015f96cdc26a02c6be551966414a4e6179b9c158121666  => artifactory-public.com/evercloud-docker-local/kse-3-5/ks-apiserver:kse-release-3.5-cebbank-20231107
+registry.cn-beijing.aliyuncs.com/kse/ks-controller-manager:kse-release-3.5-cebbank@sha256:c106b1baae7bcf0968dc9e1d33e4e6cc3bbe03ee287fbe0b00feb4888e55ca6f =>  artifactory-public.com/evercloud-docker-local/kse-3-5/ks-controller-manager:kse-release-3.5-cebbank-20231107
+
+
+
+
