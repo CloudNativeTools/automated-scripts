@@ -1,0 +1,1 @@
+docker.io/radondb/kafka:0.37.0-kafka-3.4.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/kafka:0.37.0-kafka-3.4.0
