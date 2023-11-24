@@ -44,6 +44,7 @@ jobs:
                     elif [[ $dst == *"artifactory-public.com"* ]]; then
                         oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
                     elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
+                        echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
                         oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
                     fi         
                 fi
