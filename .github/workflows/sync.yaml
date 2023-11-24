@@ -43,6 +43,8 @@ jobs:
                         oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
                     elif [[ $dst == *"artifactory-public.com"* ]]; then
                         oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
+                    elif [[ $dst == *"dockerhub.qingcloud.com"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.QINGCLOUD_USERNAME }} --to-password ${{ secrets.QINGCLOUD_PASSWORD }}
                     fi         
                 fi
               done < "$FILE"
