@@ -22,7 +22,35 @@ jobs:
           tar -zxf oras_${VERSION}_*.tar.gz -C oras-install/
           sudo mv oras-install/oras /usr/local/bin/
           rm -rf oras_${VERSION}_*.tar.gz oras-install/
+        
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.cn-beijing.aliyuncs.com
+          username: ${{ secrets.ALIYUNCS_USERNAME }}
+          password: ${{ secrets.ALIYUNCS_PASSWORD }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: dockerhub.qingcloud.com
+          username: ${{ secrets.QINGCLOUD_USERNAME }}
+          password: ${{ secrets.QINGCLOUD_PASSWORD }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: artifactory-public.com
+          username: ${{ secrets.ARTIFACTORY_USERNAME }}
+          password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+    
       - name: Sync Image
         id: sync_image
         run: |
@@ -37,16 +65,18 @@ jobs:
                 if [[ $line == *"=>"* ]]; then
                     src=$(echo "$line" | awk -F "=>" '{print $1}' | awk '{$1=$1};1')
                     dst=$(echo "$line" | awk -F "=>" '{print $2}' | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r')
-                    if [[ $dst == *"aliyuncs.com"* ]]; then
-                        oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
-                    elif [[ $dst == *"docker.io"* ]]; then
-                        oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
-                    elif [[ $dst == *"artifactory-public.com"* ]]; then
-                        oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
-                    elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
-                        echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
-                        oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
-                    fi         
+                    # if [[ $dst == *"aliyuncs.com"* ]]; then
+                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
+                    # elif [[ $dst == *"docker.io"* ]]; then
+                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    # elif [[ $dst == *"artifactory-public.com"* ]]; then
+                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
+                    # elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
+                    #     echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
+                    #     oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    # fi      
+                    echo "oras copy  ${src} ${dst}"
+                    oras copy  ${src} ${dst}
                 fi
               done < "$FILE"
           fi
