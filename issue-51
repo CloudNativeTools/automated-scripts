@@ -1,0 +1,2 @@
+docker.io/rykren/ippool-apiserver:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/ippool-apiserver:v1.0.0
+docker.io/rykren/ippool-controller:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/ippool-controller:v1.0.0
