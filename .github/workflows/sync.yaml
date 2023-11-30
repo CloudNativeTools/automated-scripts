@@ -65,18 +65,18 @@ jobs:
                 if [[ $line == *"=>"* ]]; then
                     src=$(echo "$line" | awk -F "=>" '{print $1}' | awk '{$1=$1};1')
                     dst=$(echo "$line" | awk -F "=>" '{print $2}' | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r')
-                    # if [[ $dst == *"aliyuncs.com"* ]]; then
-                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
-                    # elif [[ $dst == *"docker.io"* ]]; then
-                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
-                    # elif [[ $dst == *"artifactory-public.com"* ]]; then
-                    #     oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
-                    # elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
-                    #     echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
-                    #     oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
-                    # fi      
+                    if [[ $dst == *"aliyuncs.com"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
+                    elif [[ $dst == *"docker.io"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    elif [[ $dst == *"artifactory-public.com"* ]]; then
+                        oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
+                    elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
+                        echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
+                        oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                    fi      
                     echo "oras copy  ${src} ${dst}"
-                    oras copy  ${src} ${dst}
+                    # oras copy  ${src} ${dst}
                 fi
               done < "$FILE"
           fi
