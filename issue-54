@@ -1,0 +1,12 @@
+kubespheredev/ks-apiserver:v3.3.1-cmft-rc.1 => registry.cn-beijing.aliyuncs.com/kse/ks-apiserver:v3.3.1-cmft-rc.1
+kubespheredev/ks-controller-manager:v3.3.1-cmft-rc.1 => registry.cn-beijing.aliyuncs.com/kse/ks-controller-manager:v3.3.1-cmft-rc.1
+
+kubespheredev/kubeeye-controller:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/kubeeye-controller:v1.0.0
+kubespheredev/kubeeye-apiserver:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/kubeeye-apiserver:v1.0.0
+kubespheredev/kubeeye-job:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/kubeeye-job:v1.0.0
+
+registry.cn-hangzhou.aliyuncs.com/littleblackhouse/conformance:test-8 => registry.cn-beijing.aliyuncs.com/kse/conformance:v3.3.1-cmft-rc.1
+
+kubesphere/fluid-apiserver:v0.1.0 => registry.cn-beijing.aliyuncs.com/kse/fluid-apiserver:v0.1.0
+
+kubesphere/kruise-apiserver:v0.1.0 => registry.cn-beijing.aliyuncs.com/kse/kruise-apiserver:v0.1.0
