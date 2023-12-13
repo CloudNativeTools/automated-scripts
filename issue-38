@@ -1,3 +1,0 @@
-docker.io/kubespheredev/devops-apiserver:v3.4.1-patch-20231116  => docker.io/kubesphere/devops-apiserver:kse-v3.4.1-patch-20231116
-docker.io/kubespheredev/devops-controller:v3.4.1-patch-20231116 => docker.io/kubesphere/devops-controller:kse-v3.4.1-patch-20231116
-docker.io/kubespheredev/devops-tools:v3.4.1-patch-20231116 => docker.io/kubesphere/devops-tools:kse-v3.4.1-patch-20231116

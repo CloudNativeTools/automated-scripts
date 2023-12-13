@@ -1,4 +1,0 @@
-registry.cn-beijing.aliyuncs.com/kse/ks-installer:kse-release-3.5-cebbank => artifactory-public.com/evercloud-docker-local/kse-3-5/ks-installer:kse-release-3.5-cebbank-20231114
-docker.io/kubespheredev/devops-controller:v3.5.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/devops-controller:kse-v3.5.0-20231114
-docker.io/kubespheredev/devops-apiserver:v3.5.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/devops-apiserver:kse-v3.5.0-20231114
-docker.io/kubespheredev/devops-tools:v3.5.0 =>  artifactory-public.com/evercloud-docker-local/kse-3-5/devops-tools:kse-v3.5.0-20231114

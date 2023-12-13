@@ -1,4 +1,0 @@
-registry.cn-beijing.aliyuncs.com/kse/ks-installer:kse-release-3.5-cebbank => artifactory-public.com/evercloud-docker-local/kse-3-5/ks-installer:kse-release-3.5-cebbank-20231110
-docker.io/kubesphere/kube-events-operator:v0.7.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/kube-events-operator:v0.7.0
-docker.io/kubesphere/kube-events-exporter:v0.7.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/kube-events-exporter:v0.7.0
-docker.io/kubesphere/kube-events-ruler:v0.7.0 => artifactory-public.com/evercloud-docker-local/kse-3-5/kube-events-ruler:v0.7.0
