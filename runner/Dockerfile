@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:6.0 as build
 # Replace value with the latest runner release version
 # source: https://github.com/actions/runner/releases
 # ex: 2.303.0
-ARG RUNNER_VERSION="v2.311.0"
+ARG RUNNER_VERSION="2.311.0"
 ARG RUNNER_ARCH="x64"
 # Replace value with the latest runner-container-hooks release version
 # source: https://github.com/actions/runner-container-hooks/releases
