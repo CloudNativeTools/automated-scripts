@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up QEMU
-        uses: docker/setup-quemu-action@v3
+        uses: docker/setup-qemu-action@v3
         with:
           platforms: all
 
@@ -59,14 +59,12 @@ jobs:
           docker buildx build --platform linux/amd64 --push -f runner/Dockerfile -t $IMAGE .
           echo "Push $IMAGE success!"
   
-
-
-
   SyncedImages:
     needs: check
     if: ${{ needs.check.outputs.output }} =~ "issue-.*"
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ needs.check.outputs.output }}
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
