@@ -8,7 +8,7 @@ ARG RUNNER_ARCH="x64"
 # Replace value with the latest runner-container-hooks release version
 # source: https://github.com/actions/runner-container-hooks/releases
 # ex: 0.3.1
-ARG RUNNER_CONTAINER_HOOKS_VERSION=""
+ARG RUNNER_CONTAINER_HOOKS_VERSION="0.5.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
