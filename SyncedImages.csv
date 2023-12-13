@@ -1,6 +1,0 @@
- if [[ $line == *" , "* ]]; then 
- src=$(echo "$line" | awk -F " , " '{print $1}' | awk '{$1=$1};1') 
- dst=$(echo "$line" | awk -F " , " '{print $2}' | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r') 
- if [[ $line == *" , "* ]]; then 
- src=$(echo "$line" | awk -F " , " '{print $1}' | awk '{$1=$1};1') 
- dst=$(echo "$line" | awk -F " , " '{print $2}' | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r') 

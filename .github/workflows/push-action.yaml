@@ -32,7 +32,7 @@ jobs:
           echo "file=$file" >> "$GITHUB_OUTPUT"
   BuildRunner:
     needs: check
-    if: ${{ needs.check.outputs.output }} =~ "Dockerfile"
+    if: ${{ needs.check.outputs.output }} == "*Dockerfile*"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,10 +61,9 @@ jobs:
   
   SyncedImages:
     needs: check
-    if: ${{ needs.check.outputs.output }} =~ "issue-.*"
+    if: ${{ needs.check.outputs.output }} == "*issue-.*"
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.check.outputs.output }}
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -90,7 +89,7 @@ jobs:
         run: |
           FILE=$(git diff --name-only HEAD~1)
           
-          if [ -z "$FILE" ]; then
+          if [[ "$FILE" =~ ^$|push-action.yaml ]]; then
             echo "No rules file changed"
             exit 0
           else
