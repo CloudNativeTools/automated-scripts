@@ -82,8 +82,8 @@ jobs:
                         echo "oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}"
                         oras copy  ${src} ${dst} --from-username ${{ secrets.QINGCLOUD_USERNAME }} --from-password ${{ secrets.QINGCLOUD_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
                     fi
-                    echo "${src},${dst}" >> SyncedImages.csv
-                    # oras copy  ${src} ${dst}
+
+                    echo " ${src} , ${dst} " >> SyncedImages.csv
                 fi
               done < "$FILE"
           fi
@@ -101,7 +101,7 @@ jobs:
           branch: main
 
       - name: Close Issue
-        if: ${{ steps.sync_image.outcome }} == 'success'
+        if: ${{ steps.sync_image.outcome }} == 'success' && ${{ steps.get_issue_id.outputs.id }} != ''
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ steps.get_issue_id.outputs.id }}
