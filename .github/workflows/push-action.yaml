@@ -12,6 +12,9 @@ jobs:
     outputs:
       output: ${{ steps.check.outputs.file }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - id: check
         run: |
           FILE=$(git diff --name-only HEAD~1)
