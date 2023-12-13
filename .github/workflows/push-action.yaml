@@ -31,8 +31,9 @@ jobs:
           echo $file
           echo "file=$file" >> "$GITHUB_OUTPUT"
   BuildRunner:
-    needs: check
-    if: ${{ needs.check.outputs.output }} == "*Dockerfile*"
+    needs: 
+    - check
+    if: needs.check.outputs.output == "*Dockerfile*"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -60,8 +61,9 @@ jobs:
           echo "Push $IMAGE success!"
   
   SyncedImages:
-    needs: check
-    if: ${{ needs.check.outputs.output }} == "*issue-.*"
+    needs: 
+    - check
+    if: needs.check.outputs.output == "*issue-.*"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
