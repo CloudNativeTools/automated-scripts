@@ -18,22 +18,20 @@ jobs:
       - id: check
         run: |
           FILE=$(git diff --name-only HEAD~1)
-          file=""
           if [[ "$FILE" =~ ^$|push-action.yaml ]]; then
             echo "No rules file changed"
           elif [[ "$FILE" =~ "issue-.*" ]]; then
-            file=$FILE
+            echo "file=issue" >> "$GITHUB_OUTPUT"
           elif [[ "$FILE" =~ "Dockerfile" ]]; then
-            file=$FILE
+            echo "file=Dockerfile" >> "$GITHUB_OUTPUT"
           else  
             echo "No Job"
-          fi              
-          echo $file
-          echo "file=$file" >> "$GITHUB_OUTPUT"
+          fi
+          
   BuildRunner:
     needs: 
     - check
-    if: needs.check.outputs.output =~ "Dockerfile"
+    if: needs.check.outputs.output == "Dockerfile"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -63,14 +61,14 @@ jobs:
   SyncedImages:
     needs: 
     - check
-    if: needs.check.outputs.output =~ "*issue-"
+    if: needs.check.outputs.output == "issue"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install skopeo
+      - name: Install oras
         run: |
           VERSION="1.1.0"
           curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_amd64.tar.gz"
