@@ -88,7 +88,7 @@ jobs:
         id: sync_image
         run: |
           FILE=$(git diff --name-only HEAD~1)
-          
+          version=""
           if [[ "$FILE" =~ ^$|push-action.yaml ]]; then
             echo "No rules file changed"
             exit 0
@@ -110,6 +110,18 @@ jobs:
                     fi
 
                     echo " ${src} , ${dst} " >> SyncedImages.csv
+                else
+                    if [[ $line =~ ^\#\#.* ]]; then
+                        version=$(echo "$line" | awk '{print $2}' | awk '{$1=$1};1')
+                        rm -rf ${version}-images
+                    else
+                      src=$(echo "$line" | awk '{$1=$1};1')
+                      image=$(echo "$line" | awk '{sub(/\//, " ");print $2}' | awk '{$1=$1};1')
+                      dst=dockerhub.kubekey.local/${image}
+                    
+                      oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }}
+                      echo "${src}" >> ${version}-images
+                    fi
                 fi
               done < "$FILE"
           fi
