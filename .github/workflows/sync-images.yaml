@@ -16,7 +16,14 @@ jobs:
         with:
           fetch-depth: 0
       
+      - id: check_issue
+        name: Check Issue
+        run: |
+          FILE=$(git diff --name-only HEAD~1)
+          run: echo "::set-output name=exists::$( [ -f $FILE ] && echo true || echo false )"
+
       - name: Install oras
+        if: steps.check_issue.outputs.exists == 'true'
         run: |
           VERSION="1.1.0"
           curl -LO "https://github.com/oras-project/oras/releases/download/v${VERSION}/oras_${VERSION}_linux_amd64.tar.gz"
@@ -26,6 +33,7 @@ jobs:
           rm -rf oras_${VERSION}_*.tar.gz oras-install/
     
       - name: Get Issue ID
+        if: steps.check_issue.outputs.exists == 'true'
         id: get_issue_id
         run: |
           FILE=$(git diff --name-only HEAD~1)
@@ -33,6 +41,7 @@ jobs:
           echo "::set-output name=id::$id"
 
       - name: Sync Image
+        if: steps.check_issue.outputs.exists == 'true'
         id: sync_image
         run: |
           FILE=$(git diff --name-only HEAD~1)
@@ -68,7 +77,7 @@ jobs:
           branch: main
 
       - name: Close Issue
-        if: ${{ steps.sync_image.outcome }} == 'success' && ${{ steps.get_issue_id.outputs.id }} != ''
+        if: ${{ steps.sync_image.outcome }} == 'success' && ${{ steps.get_issue_id.outputs.id }} != '' && steps.check_issue.outputs.exists == 'true'
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ steps.get_issue_id.outputs.id }}
@@ -78,11 +87,11 @@ jobs:
         if: always()
         env:
           WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-          STATUS: ${{  steps.sync_image.outcome }}
+          STATUS: ${{ steps.sync_image.outcome }}
         run: |
           FILE=$(git diff --name-only HEAD~1)
           id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
-          if [[ -n $id ]]; then
+          if [[ -n $id ]] && [[ ${{ steps.check_issue.outputs.exists }}=='true' ]]; then
               if [[ $STATUS == 'success' ]]; then
                  message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 已关闭，镜像同步已完成，"
               else
