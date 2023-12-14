@@ -16,11 +16,10 @@ ENV ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT=1
 
 RUN apt update -y && apt install ca-certificates curl unzip sudo git make jq gnupg -y
 
-RUN install -m 0755 -d /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
-    chmod a+r /etc/apt/keyrings/docker.gpg && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
-    apt update -y && apt install docker-ce-cli -y
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-24.0.7.tgz \
+    && tar xzvf docker-24.0.7.tgz \
+    && mv docker/* /usr/bin/ \
+    && rm -rf docker-24.0.7.tgz docker
 
 RUN adduser --disabled-password --gecos "" --uid 1001 runner \
     && groupadd docker --gid 123 \
