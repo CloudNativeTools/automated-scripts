@@ -17,3 +17,8 @@ docker.io/kubesphere/kube-scheduler:v1.23.15
 docker.io/kubesphere/kube-apiserver:v1.23.17
 docker.io/kubesphere/kube-controller-manager:v1.23.17
 docker.io/kubesphere/kube-proxy:v1.23.17
+docker.io/kubesphere/kube-scheduler:v1.23.17
+docker.io/kubesphere/kube-apiserver:v1.24.12
+docker.io/kubesphere/kube-controller-manager:v1.24.12
+docker.io/kubesphere/kube-proxy:v1.24.12
+docker.io/kubesphere/kube-scheduler:v1.24.12
