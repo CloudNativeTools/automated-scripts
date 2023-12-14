@@ -47,7 +47,15 @@ jobs:
               src=$(echo "$line" | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r' ) 
               image=$(echo "$src" | awk '{sub(/\//, " ");print $2}' | awk '{$1=$1};1')
               dst=dockerhub.kubekey.local/${image}
-              oras copy ${src} ${dst} --from-username ${{ secrets.DOCKERHUB_USERNAME }} --from-password ${{ secrets.DOCKERHUB_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
+
+              for i in {1..5}
+              do
+                oras copy ${src} ${dst} --from-username ${{ secrets.DOCKERHUB_USERNAME }} --from-password ${{ secrets.DOCKERHUB_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
+                if [[ $? == 0 ]]; then
+                  break
+                fi
+              done
+
               echo "${src}" >> ${version}-images
             fi
           done < "$FILE"
