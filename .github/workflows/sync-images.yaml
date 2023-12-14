@@ -58,7 +58,7 @@ jobs:
       - name: Clean issues file
         if: always()
         run: |
-          rm -rf issues/images-*
+          sudo rm -rf issues/images-*
 
       - name: Commit & Push changes
         if: always()

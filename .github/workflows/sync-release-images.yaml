@@ -47,7 +47,7 @@ jobs:
       - name: Clean issues file
         if: always()
         run: |
-          issues/release-images-*
+          sudo issues/release-images-*
 
       - name: Commit & Push changes
         if: always()
