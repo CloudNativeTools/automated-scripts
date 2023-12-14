@@ -30,6 +30,12 @@ jobs:
           id=$(echo "$FILE" | awk -F "-" '{print $3}' | awk '{$1=$1};1')
           echo "::set-output name=id::$id"
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: Sync Image
         if: steps.check_issue.outputs.exists == 'true'
         id: sync_image
@@ -50,7 +56,7 @@ jobs:
 
               for i in {1..5}
               do
-                oras copy ${src} ${dst} --from-username ${{ secrets.DOCKERHUB_USERNAME }} --from-password ${{ secrets.DOCKERHUB_PASSWORD }} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
+                oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
                 if [[ $? == 0 ]]; then
                   break
                 fi
