@@ -20,7 +20,7 @@ jobs:
         name: Check Issue
         run: |
           FILE=$(git diff --name-only HEAD~1)
-          run: echo "::set-output name=exists::$( [ -f $FILE ] && echo true || echo false )"
+          echo "::set-output name=exists::$( [ -f $FILE ] && echo true || echo false )"
 
       - name: Install oras
         if: steps.check_issue.outputs.exists == 'true'
