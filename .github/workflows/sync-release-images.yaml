@@ -40,7 +40,7 @@ jobs:
         if: steps.check_issue.outputs.exists == 'true'
         id: sync_image
         run: |
-          set +x
+          set +e
            
           FILE=$(git diff --name-only HEAD~1)
           version=""
