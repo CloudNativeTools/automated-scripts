@@ -11,6 +11,11 @@ on:
 jobs:
   SyncedImages:
     runs-on: ci-kubesphere-0
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        images: ${{ steps.read-images.outputs.images }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,6 +26,14 @@ jobs:
         run: |
           FILE=$(git diff --name-only HEAD~1)
           echo "::set-output name=exists::$( [ -f $FILE ] && echo true || echo false )"
+
+      - name: Read Images
+        if: steps.check_issue.outputs.exists == 'true'
+        id: read-images
+        run: |
+          FILE=$(git diff --name-only HEAD~1)
+          images=$(cat $FILE)
+          echo "::set-output name=images::$images"
 
       - name: Get Issue ID
         if: steps.check_issue.outputs.exists == 'true'
@@ -40,31 +53,46 @@ jobs:
         if: steps.check_issue.outputs.exists == 'true'
         id: sync_image
         run: |
-          FILE=$(git diff --name-only HEAD~1)
-          version=""
-        
-          while IFS= read -r line; do
-            echo $line
-            if [[ $line =~ ^\#\#.* ]]; then
-                version=$(echo "$line" | awk '{print $2}' | awk '{$1=$1};1')
-                rm -rf ${version}-images
-                mkdir -p releases
+            if [[ ${{ matrix.images }} =~ ^\#\#.* ]]; then
+                version=$(echo ${{ matrix.images }} | awk '{print $2}' | awk '{$1=$1};1')
+                echo $version
             else
-              src=$(echo "$line" | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r' ) 
+              src=$(echo ${{ matrix.images }} | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r' ) 
               image=$(echo "$src" | awk '{sub(/\//, " ");print $2}' | awk '{$1=$1};1')
               dst=dockerhub.kubekey.local/${image}
-
-              for i in {1..5}
-              do
-                oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
-                if [[ $? == 0 ]]; then
-                  break
-                fi
-              done
-
-              echo "${src}" >> ${version}-images
+              oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
             fi
-          done < "$FILE"
+      
+
+      # - name: Sync Image
+      #   if: steps.check_issue.outputs.exists == 'true'
+      #   id: sync_image
+      #   run: |
+      #     FILE=$(git diff --name-only HEAD~1)
+      #     version=""
+        
+      #     while IFS= read -r line; do
+      #       echo $line
+      #       if [[ $line =~ ^\#\#.* ]]; then
+      #           version=$(echo "$line" | awk '{print $2}' | awk '{$1=$1};1')
+      #           rm -rf ${version}-images
+      #           mkdir -p releases
+      #       else
+      #         src=$(echo "$line" | awk '{$1=$1};1' | tr -d '\n' | tr -d '\r' ) 
+      #         image=$(echo "$src" | awk '{sub(/\//, " ");print $2}' | awk '{$1=$1};1')
+      #         dst=dockerhub.kubekey.local/${image}
+
+      #         for i in {1..5}
+      #         do
+      #           oras copy ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_KUBEKEY_USERNAME }} --to-password ${{ secrets.DOCKERHUB_KUBEKEY_PASSWORD }} --to-insecure
+      #           if [[ $? == 0 ]]; then
+      #             break
+      #           fi
+      #         done
+
+      #         echo "${src}" >> ${version}-images
+      #       fi
+      #     done < "$FILE"
           
       - name: Clean issues file
         if: always()
@@ -78,36 +106,36 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
-      - name: Close Issue
-        if: ${{ steps.sync_image.outcome }} == 'success' && ${{ steps.get_issue_id.outputs.id }} != '' && steps.check_issue.outputs.exists == 'true'
-        uses: peter-evans/close-issue@v3
-        with:
-          issue-number: ${{ steps.get_issue_id.outputs.id }}
-          comment: Auto-closing issue
+      # - name: Close Issue
+      #   if: ${{ steps.sync_image.outcome }} == 'success' && ${{ steps.get_issue_id.outputs.id }} != '' && steps.check_issue.outputs.exists == 'true'
+      #   uses: peter-evans/close-issue@v3
+      #   with:
+      #     issue-number: ${{ steps.get_issue_id.outputs.id }}
+      #     comment: Auto-closing issue
 
-      - name: Send WeChat Notification
-        if: always()
-        env:
-          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-          STATUS: ${{  steps.sync_image.outcome }}
-        run: |
-          FILE=$(git diff --name-only HEAD~1)
-          id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
-          if [[ -n $id ]]; then
-              if [[ $STATUS == 'success' ]] && [[ ${{ steps.check_issue.outputs.exists }}=='true' ]]; then
-                 message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 已关闭，镜像同步已完成，"
-              else
-                 message="镜像同步失败，请检查 [issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }})"
-              fi
-              curl "${WECHAT_WEBHOOK}" \
-                  -H 'Content-Type: application/json' \
-                  -d '
-                  {
-                      "msgtype": "markdown",
-                      "markdown": {
-                        "content": "'"$message"'"
-                      }
-                  }'
-          fi
+      # - name: Send WeChat Notification
+      #   if: always()
+      #   env:
+      #     WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+      #     STATUS: ${{  steps.sync_image.outcome }}
+      #   run: |
+      #     FILE=$(git diff --name-only HEAD~1)
+      #     id=$(echo "$FILE" | awk -F "-" '{print $2}' | awk '{$1=$1};1')
+      #     if [[ -n $id ]]; then
+      #         if [[ $STATUS == 'success' ]] && [[ ${{ steps.check_issue.outputs.exists }}=='true' ]]; then
+      #            message="[issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }}) 已关闭，镜像同步已完成，"
+      #         else
+      #            message="镜像同步失败，请检查 [issue-${{ steps.get_issue_id.outputs.id }}](https://github.com/CloudNativeTools/automated-scripts/issues/${{ steps.get_issue_id.outputs.id }})"
+      #         fi
+      #         curl "${WECHAT_WEBHOOK}" \
+      #             -H 'Content-Type: application/json' \
+      #             -d '
+      #             {
+      #                 "msgtype": "markdown",
+      #                 "markdown": {
+      #                   "content": "'"$message"'"
+      #                 }
+      #             }'
+      #     fi
 
    
