@@ -14,7 +14,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
 ENV ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT=1
 
-RUN apt update -y && apt install curl unzip sudo git make jq -y
+RUN apt update -y && apt install ca-certificates curl unzip sudo git make jq gnupg -y
+
+RUN install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    chmod a+r /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt update -y && apt install docker-ce-cli -y
 
 RUN adduser --disabled-password --gecos "" --uid 1001 runner \
     && groupadd docker --gid 123 \
