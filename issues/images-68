@@ -1,0 +1,2 @@
+docker.io/leiwanjun/notification-tenant-sidecar:v4.0.0 => docker.io/kubesphere/notification-tenant-sidecar:v4.0.0
+
