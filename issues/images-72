@@ -1,2 +1,0 @@
-docker.io/2030047311/base-nossl-debian11:edge => docker.io/kubespheredev/base-nossl-debian11:edge
-docker.io/2030047311/base-nossl-debian12:edge => docker.io/kubespheredev/base-nossl-debian12:edge
