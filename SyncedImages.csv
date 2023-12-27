@@ -2,3 +2,4 @@
  docker.io/justb4/jmeter:latest , artifactory-public.com/evercloud-docker-local/kse-3-5/jmeter:20231221 
  docker.io/2030047311/base-nossl-debian11:edge , docker.io/kubespheredev/base-nossl-debian11:edge 
  docker.io/2030047311/base-nossl-debian12:edge , docker.io/kubespheredev/base-nossl-debian12:edge 
+ docker.io/2030047311/nodejs:21.5.0-alpine3.19 , docker.io/kubespheredev/nodejs21:edge 
