@@ -3,3 +3,4 @@
  docker.io/2030047311/base-nossl-debian11:edge , docker.io/kubespheredev/base-nossl-debian11:edge 
  docker.io/2030047311/base-nossl-debian12:edge , docker.io/kubespheredev/base-nossl-debian12:edge 
  docker.io/2030047311/nodejs:21.5.0-alpine3.19 , docker.io/kubespheredev/nodejs21:edge 
+ docker.io/2030047311/nodejs:edge-patch , docker.io/kubespheredev/nodejs:edge 
