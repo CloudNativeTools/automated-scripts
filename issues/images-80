@@ -1,3 +1,0 @@
-docker.io/kubespheredev/devops-controller:v3.5.0 =>  docker.io/kubesphere/devops-controller:kse-v3.5.0 
-docker.io/kubespheredev/devops-apiserver:v3.5.0  =>  docker.io/kubesphere/devops-apiserver:kse-v3.5.0
-docker.io/kubespheredev/devops-tools:v3.5.0      =>  docker.io/kubesphere/devops-tools:kse-v3.5.0

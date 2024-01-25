@@ -6,3 +6,6 @@
  docker.io/2030047311/nodejs:edge-patch , docker.io/kubespheredev/nodejs:edge 
  docker.io/rykren/network-extension-controller:v1.0.0 , registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.0.0 
  docker.io/rykren/network-extension-apiserver:v1.0.0 , registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.0.0 
+ docker.io/kubespheredev/devops-controller:v3.5.0 , docker.io/kubesphere/devops-controller:kse-v3.5.0  
+ docker.io/kubespheredev/devops-apiserver:v3.5.0 , docker.io/kubesphere/devops-apiserver:kse-v3.5.0 
+ docker.io/kubespheredev/devops-tools:v3.5.0 , docker.io/kubesphere/devops-tools:kse-v3.5.0 
