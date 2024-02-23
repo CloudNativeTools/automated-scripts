@@ -1,0 +1,4 @@
+docker.io/kubesphere/ks-installer:v3.3.0-patch.0 => registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.3.0-patch.0
+docker.io/kubesphere/ks-installer:v3.3.1-patch.0 => registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.3.1-patch.0
+docker.io/kubesphere/ks-installer:v3.3.2-patch.0 => registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.3.2-patch.0
+docker.io/kubesphere/ks-installer:v3.4.1-patch.0 => registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.4.1-patch.0
