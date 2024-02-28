@@ -1,0 +1,2 @@
+docker.io/rykren/network-extension-controller:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.0.0
+docker.io/rykren/network-extension-apiserver:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.0.0
