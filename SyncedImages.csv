@@ -16,3 +16,6 @@
  docker.io/kubesphere/ks-installer:v3.4.1-patch.0 , registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.4.1-patch.0 
  docker.io/rykren/network-extension-controller:v1.0.0 , registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.0.0 
  docker.io/rykren/network-extension-apiserver:v1.0.0 , registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.0.0 
+ docker.io/kubesphere/devops-apiserver:kse-v3.4.1-patch-20231116 , docker.io/kubesphere/devops-apiserver:kse-v3.4.1-patch-231116 
+ docker.io/kubesphere/devops-controller:kse-v3.4.1-patch-20231116 , docker.io/kubesphere/devops-controller:kse-v3.4.1-patch-231116 
+ docker.io/kubesphere/devops-tools:kse-v3.4.1-patch-20231116 , docker.io/kubesphere/devops-tools:kse-v3.4.1-patch-231116 
