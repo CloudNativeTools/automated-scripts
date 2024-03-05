@@ -1,2 +1,0 @@
-docker.io/hongzhouwei/servicemesh-controller-manager:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/servicemesh-controller-manager:v1.0.0
-docker.io/hongzhouwei/servicemesh-apiserver:v1.0.0 => registry.cn-beijing.aliyuncs.com/kse/servicemesh-apiserver:v1.0.0
