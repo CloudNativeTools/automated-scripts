@@ -1,0 +1,2 @@
+docker.io/hongzhouwei/gateway-apiserver:v0.1.0-alpha.0 => registry.cn-beijing.aliyuncs.com/kse/gateway-apiserver:v0.1.0-alpha.0
+docker.io/hongzhouwei/gateway-controller-manager:v0.1.0-alpha.0 => registry.cn-beijing.aliyuncs.com/kse/gateway-controller-manager:v0.1.0-alpha.0
