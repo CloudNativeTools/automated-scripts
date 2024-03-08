@@ -1,3 +1,0 @@
-registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.0.0 => registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0
-registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.0.0 => registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.0
-registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.0.0 => registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0

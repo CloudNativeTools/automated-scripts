@@ -26,3 +26,6 @@
  docker.io/hongzhouwei/gateway-apiserver:v0.1.0-alpha.0 , registry.cn-beijing.aliyuncs.com/kse/gateway-apiserver:v0.1.0-alpha.0 
  docker.io/hongzhouwei/gateway-controller-manager:v0.1.0-alpha.0 , registry.cn-beijing.aliyuncs.com/kse/gateway-controller-manager:v0.1.0-alpha.0 
  quay.io/kiali/kiali-operator:v1.59.1 , docker.io/kubesphere/kiali-operator:v1.59.1 
+ registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.0.0 , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0 
+ registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.0.0 , registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.0 
+ registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.0.0 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0 
