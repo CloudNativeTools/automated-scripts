@@ -1,0 +1,1 @@
+docker.io/busybox:1.31.1 => docker.io/kubesphere/busybox:1.31.1
