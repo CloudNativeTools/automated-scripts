@@ -1,0 +1,2 @@
+docker.io/iawia002/kubefed-extension:v1.0.0 => docker.io/kubesphere/kubefed-extension:v1.0.0
+docker.io/iawia002/tower-extension:v1.0.0 => docker.io/kubesphere/tower-extension:v1.0.0
