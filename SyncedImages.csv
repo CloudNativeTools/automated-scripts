@@ -32,3 +32,8 @@
  quay.io/kiali/kiali-operator:v1.59.1 , docker.io/kubesphere/kiali-operator:v1.59.1 
  quay.io/kiali/kiali:v1.59 , docker.io/kubesphere/kiali:v1.59 
  docker.io/kubesphere/ks-installer:v3.3.0-patch.0 , registry.cn-beijing.aliyuncs.com/kubesphereio/ks-installer:v3.3.0-patch.0 
+ docker.io/hongzhouwei/servicemesh-controller-manager:v0.1.0 , docker.io/kubesphere/servicemesh-controller-manager:v0.1.0 
+ docker.io/hongzhouwei/servicemesh-apiserver:v0.1.0 , docker.io/kubesphere/servicemesh-apiserver:v0.1.0 
+ docker.io/hongzhouwei/gateway-apiserver:v0.1.0-alpha.0 , docker.io/kubesphere/gateway-apiserver:v0.1.0-alpha.0 
+ docker.io/hongzhouwei/gateway-controller-manager:v0.1.0-alpha.0 , docker.io/kubesphere/gateway-controller-manager:v0.1.0-alpha.0 
+ registry.cn-beijing.aliyuncs.com/kse/spring-cloud-controller:v0.1.0 , docker.io/kubesphere/spring-cloud-controller:v0.1.0 
