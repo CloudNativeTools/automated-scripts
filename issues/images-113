@@ -1,0 +1,2 @@
+docker.io/hongzhouwei/gateway-apiserver:v0.1.0-beta.1 => docker.io/kubesphere/gateway-apiserver:v0.1.0-beta.1
+docker.io/hongzhouwei/gateway-controller-manager:v0.1.0-alpha.0 => docker.io/kubesphere/gateway-controller-manager:v0.1.0-beta.1
