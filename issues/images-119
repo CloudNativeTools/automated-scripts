@@ -1,3 +1,0 @@
-docker.io/kubespheredev/devops-apiserver:v4.1.0-beta.0 => registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-beta.0
-docker.io/kubespheredev/devops-controller:v4.1.0-beta.0 => registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.0-beta.0
-docker.io/kubespheredev/devops-tools:v4.1.0-beta.0 => registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0-beta.0
