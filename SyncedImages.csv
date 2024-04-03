@@ -48,3 +48,5 @@
  docker.io/kubespheredev/devops-tools:v4.1.0-beta.0 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0-beta.0 
  docker.io/leiwanjun/notification-tenant-sidecar:v4.0.0 , docker.io/kubesphere/notification-tenant-sidecar:v4.0.0 
  docker.io/iawia002/tower-extension:v1.0.0 , docker.io/kubesphere/tower-extension:v1.0.0 
+ docker.io/hongzhouwei/gateway-apiserver:v0.1.0-rc.1 , docker.io/kubesphere/gateway-apiserver:v0.1.0-rc.1 
+ docker.io/hongzhouwei/gateway-controller-manager:v0.1.0-rc.1 , docker.io/kubesphere/gateway-controller-manager:v0.1.0-rc.1 
