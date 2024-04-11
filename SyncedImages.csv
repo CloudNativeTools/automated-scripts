@@ -56,3 +56,4 @@
  docker.io/kubespheredev/devops-tools:v4.1.0-beta.1 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0-beta.1 
  registry.cn-beijing.aliyuncs.com/kse/spring-cloud-controller:v0.1.1 , docker.io/kubesphere/spring-cloud-controller:v0.1.1 
  docker.io/hongzhouwei/gateway-apiserver:v0.1.0-rc.1 , docker.io/kubesphere/gateway-apiserver:v0.1.0-rc.1 
+ docker.io/hongzhouwei/gateway-apiserver:v0.1.0-rc.1 , docker.io/kubesphere/gateway-apiserver:v0.1.0-rc.1 
