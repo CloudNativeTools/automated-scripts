@@ -1,0 +1,9 @@
+docker.io/kubespheredev/builder-base:v3.2.2-podman -> docker.io/kubesphere/builder-base:v3.2.2-podman
+docker.io/jackwithdocker/builder-nodejs:v3.2.0-podman -> docker.io/kubesphere/builder-nodejs:v3.2.0-podman
+docker.io/jackwithdocker/builder-maven:v3.2.0-podman -> docker.io/kubesphere/builder-maven:v3.2.0-podman
+docker.io/jackwithdocker/builder-maven:v3.2.1-jdk11-podman -> docker.io/kubesphere/builder-maven:v3.2.1-jdk11-podman
+docker.io/jackwithdocker/builder-python:v3.2.0-podman -> docker.io/kubesphere/builder-python:v3.2.0-podman
+docker.io/jackwithdocker/builder-go:v3.2.0-podman -> docker.io/kubesphere/builder-go:v3.2.0-podman
+docker.io/jackwithdocker/builder-go:v3.2.2-1.16-podman -> docker.io/kubesphere/builder-go:v3.2.2-1.16-podman
+docker.io/jackwithdocker/builder-go:v3.2.2-1.17-podman -> docker.io/kubesphere/builder-go:v3.2.2-1.17-podman
+docker.io/jackwithdocker/builder-go:v3.2.2-1.18-podman -> docker.io/kubesphere/builder-go:v3.2.2-1.18-podman
