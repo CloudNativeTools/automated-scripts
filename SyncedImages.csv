@@ -84,3 +84,4 @@
  docker.io/jackwithdocker/builder-go:v3.2.2-1.16-podman , docker.io/kubesphere/builder-go:v3.2.2-1.16-podman 
  docker.io/jackwithdocker/builder-go:v3.2.2-1.17-podman , docker.io/kubesphere/builder-go:v3.2.2-1.17-podman 
  docker.io/jackwithdocker/builder-go:v3.2.2-1.18-podman , docker.io/kubesphere/builder-go:v3.2.2-1.18-podman 
+ registry.k8s.io/ingress-nginx/controller:v1.4.0 , registry.cn-beijing.aliyuncs.com/kubesphereio/nginx-ingress-controller:v1.4.0 
