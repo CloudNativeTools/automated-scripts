@@ -54,6 +54,8 @@ jobs:
                     oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
                 elif [[ $dst == *"docker.io"* ]]; then
                     oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
+                elif [[ $dst == *"hub.kubesphere.com.cn"* ]]; then
+                    oras copy  ${src} ${dst} --to-username ${{ secrets.HUB_KUBESPHERE_USERNAME }} --to-password ${{ secrets.HUB_KUBESPHERE_PASSWORD }}
                 elif [[ $dst == *"artifactory-public.com"* ]]; then
                     oras copy  ${src} ${dst} --to-username ${{ secrets.ARTIFACTORY_USERNAME }} --to-password ${{ secrets.ARTIFACTORY_PASSWORD }}
                 elif [[ $src == *"dockerhub.qingcloud.com"* ]]; then
