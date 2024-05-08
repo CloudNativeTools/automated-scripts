@@ -203,3 +203,4 @@
  k8s.gcr.io/e2e-test-images/nginx:1.15-2 , hub.kubesphere.com.cn/e2e-test/nginx:1.15-2 
  k8s.gcr.io/e2e-test-images/nonewprivs:1.3 , hub.kubesphere.com.cn/e2e-test/nonewprivs:1.3 
  k8s.gcr.io/prometheus-dummy-exporter:v0.1.0 , hub.kubesphere.com.cn/e2e-test/prometheus-dummy-exporter:v0.1.0 
+ registry.cn-hangzhou.aliyuncs.com/littleblackhouse/conformance:test-8 , hub.kubesphere.com.cn/e2e-test/kse-comformance:3.3-cmft 
