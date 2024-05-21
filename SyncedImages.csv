@@ -205,3 +205,6 @@
  k8s.gcr.io/prometheus-dummy-exporter:v0.1.0 , hub.kubesphere.com.cn/e2e-test/prometheus-dummy-exporter:v0.1.0 
  registry.cn-hangzhou.aliyuncs.com/littleblackhouse/conformance:test-8 , hub.kubesphere.com.cn/e2e-test/kse-comformance:3.3-cmft 
  docker.io/hongzhouwei/ingress-utils-controller-manager:v0.1.0 , docker.io/kubesphere/ingress-utils-controller-manager:v0.1.0 
+ docker.io/kubespheredev/devops-apiserver:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-20240521 
+ docker.io/kubespheredev/devops-controller:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.0-20240521 
+ docker.io/kubespheredev/devops-tools:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0-20240521 
