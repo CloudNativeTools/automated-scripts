@@ -208,3 +208,4 @@
  docker.io/kubespheredev/devops-apiserver:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-20240521 
  docker.io/kubespheredev/devops-controller:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.0-20240521 
  docker.io/kubespheredev/devops-tools:v4.1.0-20240521 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.0-20240521 
+ registry.cn-huhehaote.aliyuncs.com/ksluban/devops-apiserver:dev-e38054d , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-20240523-1 
