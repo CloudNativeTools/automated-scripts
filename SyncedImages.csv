@@ -211,3 +211,4 @@
  registry.cn-huhehaote.aliyuncs.com/ksluban/devops-apiserver:dev-e38054d , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-20240523-1 
  docker.io/birdhk/conversions:v0.5 , docker.io/kubesphere/conversions:v0.5 
  docker.io/kubespheredev/devops-apiserver:v4.1.0-20240524 , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.0-20240524-1 
+ docker.io/hongzhouwei/nginx-ingress-controller:v1.1.0-1.20.1 , docker.io/kubesphere/nginx-ingress-controller:v1.1.0-1.20.1 
