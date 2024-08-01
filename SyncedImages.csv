@@ -231,3 +231,8 @@
  docker.io/istio/pilot:1.4.8 , registry.cn-beijing.aliyuncs.com/kubesphereio/pilot:1.4.8 
  docker.io/istio/proxyv2:1.4.8 , registry.cn-beijing.aliyuncs.com/kubesphereio/proxyv2:1.4.8 
  docker.io/jenkins/jenkins:2.176.2 , registry.cn-beijing.aliyuncs.com/kubesphereio/jenkins:2.176.2 
+ docker.io/kubespheredev/devops-apiserver:v4.1.2 , registry.cn-beijing.aliyuncs.com/kse/devops-apiserver:v4.1.2 
+ docker.io/kubespheredev/devops-controller:v4.1.2 , registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.2 
+ docker.io/kubespheredev/devops-tools:v4.1.2 , registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.2 
+ docker.io/kubespheredev/ks-jenkins:v4.1.2-2.346.3 , registry.cn-beijing.aliyuncs.com/kse/devops-jenkins:v4.1.2-2.346.3 
+ docker.io/kubespheredev/ks-jenkins:v4.1.2-2.346.3-security , registry.cn-beijing.aliyuncs.com/kse/devops-jenkins:v4.1.2-2.346.3-security 
