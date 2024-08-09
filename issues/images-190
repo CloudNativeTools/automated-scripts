@@ -1,6 +1,0 @@
-docker.io/calico/kube-controllers:v3.27.4    => registry.cn-beijing.aliyuncs.com/kubesphereio/kube-controllers:v3.27.4
-docker.io/calico/cni:v3.27.4                 => registry.cn-beijing.aliyuncs.com/kubesphereio/cni:v3.27.4
-docker.io/calico/node:v3.27.4                => registry.cn-beijing.aliyuncs.com/kubesphereio/node:v3.27.4
-docker.io/calico/pod2daemon-flexvol:v3.27.4  => registry.cn-beijing.aliyuncs.com/kubesphereio/pod2daemon-flexvol:v3.27.4
-docker.io/calico/typha:v3.27.4               => registry.cn-beijing.aliyuncs.com/kubesphereio/typha:v3.27.4
-
