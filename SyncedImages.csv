@@ -242,3 +242,4 @@
  docker.io/calico/node:v3.27.4 , registry.cn-beijing.aliyuncs.com/kubesphereio/node:v3.27.4 
  docker.io/calico/pod2daemon-flexvol:v3.27.4 , registry.cn-beijing.aliyuncs.com/kubesphereio/pod2daemon-flexvol:v3.27.4 
  docker.io/calico/typha:v3.27.4 , registry.cn-beijing.aliyuncs.com/kubesphereio/typha:v3.27.4 
+ registry.cn-huhehaote.aliyuncs.com/ydong/devops-jenkins:v4.1.2-2.346.3 , registry.cn-beijing.aliyuncs.com/kse/devops-jenkins:v4.1.2-2.346.3 
