@@ -1,4 +1,0 @@
-docker.io/kubesphere/devops-tools:v3.3.2 => registry.cn-beijing.aliyuncs.com/kubesphereio/devops-tools:v3.3.2
-docker.io/kubesphere/devops-apiserver:v3.3.2 => registry.cn-beijing.aliyuncs.com/kubesphereio/devops-apiserver:v3.3.2
-docker.io/kubesphere/devops-controller:v3.3.2 => registry.cn-beijing.aliyuncs.com/kubesphereio/devops-controller:v3.3.2
-docker.io/kubesphere/devops-jenkins:v3.3.0-2.319.1 => registry.cn-beijing.aliyuncs.com/kubesphereio/devops-jenkins:v3.3.0-2.319.1
