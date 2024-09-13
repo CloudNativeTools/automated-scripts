@@ -53,7 +53,7 @@ jobs:
                 if [[ $dst == *"aliyuncs.com"* ]]; then
                     oras copy  ${src} ${dst} --to-username ${{ secrets.ALIYUNCS_USERNAME }} --to-password ${{ secrets.ALIYUNCS_PASSWORD }}
                 elif [[ $dst == *"huaweicloud.com"* ]]; then
-                    oras copy  ${src} ${dst} --to-username ${{ secrets.HUAWEICLOUD_USERNAME }} --to-password ${{ secrets.HUAWEICLOUD_PASSWORD }}
+                    oras copy  ${src} ${dst} --platform linux/amd64 --to-username ${{ secrets.HUAWEICLOUD_USERNAME }} --to-password ${{ secrets.HUAWEICLOUD_PASSWORD }}
                 elif [[ $dst == *"docker.io"* ]]; then
                     oras copy  ${src} ${dst} --to-username ${{ secrets.DOCKERHUB_USERNAME }} --to-password ${{ secrets.DOCKERHUB_PASSWORD }}
                 elif [[ $dst == *"hub.kubesphere.com.cn"* ]]; then
