@@ -1,0 +1,6 @@
+docker.io/kubesphere/redis:7.2.4-alpine               =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/redis:7.2.4-alpine
+docker.io/kubesphere/haproxy:2.9.6-alpine             =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/haproxy:2.9.6-alpine
+docker.io/kubesphere/ks-console:v4.1.1                =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/ks-console:v4.1.1
+docker.io/kubesphere/ks-controller-manager:v4.1.1     =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/ks-controller-manager:v4.1.1
+docker.io/kubesphere/ks-apiserver:v4.1.1              =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/ks-apiserver:v4.1.1
+docker.io/kubesphere/kubectl:v1.27.16                 =>  swr.cn-southwest-2.myhuaweicloud.com/ks/kubesphere/kubectl:v1.27.16
