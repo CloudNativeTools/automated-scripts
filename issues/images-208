@@ -1,0 +1,4 @@
+registry.cn-beijing.aliyuncs.com/kubesphereio/nginx-ingress-controller:v1.4.0 => docker.io/kubesphere/nginx-ingress-controller:v1.4.0
+registry.cn-beijing.aliyuncs.com/kse/gateway-apiserver:v1.0.2 => docker.io/kubesphere/gateway-apiserver:v1.0.2
+registry.cn-beijing.aliyuncs.com/kse/gateway-controller-manager:v1.0.2 => docker.io/kubesphere/gateway-controller-manager:v1.0.2
+registry.cn-beijing.aliyuncs.com/kubesphereio/kubectl:v1.27.16 => docker.io/kubesphere/kubectl:v1.27.16
