@@ -265,3 +265,4 @@
  registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.1.0 , docker.io/kubesphere/network-extension-controller:v1.1.0 
  registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.0.0 , docker.io/kubesphere/network-extension-apiserver:v1.0.0 
  registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.0.0 , docker.io/kubesphere/network-extension-controller:v1.0.0 
+ registry.cn-huhehaote.aliyuncs.com/ydong/devops-jenkins:v4.1.2-2.346.3 , registry.cn-beijing.aliyuncs.com/kse/devops-jenkins:v4.1.2-2.346.3 
