@@ -261,3 +261,7 @@
  registry.cn-beijing.aliyuncs.com/kse/gateway-apiserver:v1.0.2 , docker.io/kubesphere/gateway-apiserver:v1.0.2 
  registry.cn-beijing.aliyuncs.com/kse/gateway-controller-manager:v1.0.2 , docker.io/kubesphere/gateway-controller-manager:v1.0.2 
  registry.cn-beijing.aliyuncs.com/kubesphereio/kubectl:v1.27.16 , docker.io/kubesphere/kubectl:v1.27.16 
+ registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.1.0 , docker.io/kubesphere/network-extension-apiserver:v1.1.0 
+ registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.1.0 , docker.io/kubesphere/network-extension-controller:v1.1.0 
+ registry.cn-beijing.aliyuncs.com/kse/network-extension-apiserver:v1.0.0 , docker.io/kubesphere/network-extension-apiserver:v1.0.0 
+ registry.cn-beijing.aliyuncs.com/kse/network-extension-controller:v1.0.0 , docker.io/kubesphere/network-extension-controller:v1.0.0 
