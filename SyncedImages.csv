@@ -270,3 +270,11 @@
  registry.cn-beijing.aliyuncs.com/kse/devops-controller:v4.1.2 , docker.io/kubesphere/devops-controller:v4.1.2 
  registry.cn-beijing.aliyuncs.com/kse/devops-tools:v4.1.2 , docker.io/kubesphere/devops-tools:v4.1.2 
  registry.cn-beijing.aliyuncs.com/kse/devops-jenkins:v4.1.2-2.346.3 , docker.io/kubesphere/devops-jenkins:v4.1.2-2.346.3 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-pause:latest , docker.io/kubesphere/chaos-pause:latest 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-apiserver:v2.7.0 , docker.io/kubesphere/chaos-apiserver:v2.7.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-mesh:v2.7.0 , docker.io/kubesphere/chaos-mesh:v2.7.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-daemon:v2.7.0 , docker.io/kubesphere/chaos-daemon:v2.7.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-dashboard:v2.7.0 , docker.io/kubesphere/chaos-dashboard:v2.7.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-kernel:v2.7.0 , docker.io/kubesphere/chaos-kernel:v2.7.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-coredns:v0.2.6 , docker.io/kubesphere/chaos-coredns:v0.2.6 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-dlv:v2.7.0 , docker.io/kubesphere/chaos-dlv:v2.7.0 
