@@ -278,3 +278,4 @@
  hub.kubesphere.com.cn/liujian/kubesphere/chaos-kernel:v2.7.0 , docker.io/kubesphere/chaos-kernel:v2.7.0 
  hub.kubesphere.com.cn/liujian/kubesphere/chaos-coredns:v0.2.6 , docker.io/kubesphere/chaos-coredns:v0.2.6 
  hub.kubesphere.com.cn/liujian/kubesphere/chaos-dlv:v2.7.0 , docker.io/kubesphere/chaos-dlv:v2.7.0 
+ registry.cn-beijing.aliyuncs.com/kubesphereio/nginx-ingress-controller:v1.10.3 , docker.io/kubesphere/nginx-ingress-controller:v1.10.3 
