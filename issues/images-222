@@ -1,0 +1,2 @@
+quay.io/kiali/kiali-operator:v2.0.0 => docker.io/kubesphere/kiali-operator:v2.0.0
+quay.io/kiali/kiali:v2.0 => docker.io/kubesphere/kiali:v2.0
