@@ -282,3 +282,4 @@
  registry.k8s.io/metrics-server/metrics-server:v0.7.2 , docker.io/kubesphere/metrics-server:v0.7.2 
  quay.io/kiali/kiali-operator:v2.0.0 , docker.io/kubesphere/kiali-operator:v2.0.0 
  quay.io/kiali/kiali:v2.0 , docker.io/kubesphere/kiali:v2.0 
+ hub.kubesphere.com.cn/liujian/kubesphere/chaos-apiserver:v2.7.0 , docker.io/kubesphere/chaos-apiserver:v2.7.0 
