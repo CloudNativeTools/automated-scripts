@@ -1,1 +1,0 @@
-nvcr.io/nvidia/driver:550-5.15.0-131-generic-ubuntu22.04 => hub.kubesphere.com.cn/liujian/nvidia/driver:550-5.15.0-131-generic-ubuntu22.04
