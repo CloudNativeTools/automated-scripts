@@ -287,3 +287,4 @@
  nvcr.io/nvidia/driver:550-5.15.0-131-generic-ubuntu22.04 , hub.kubesphere.com.cn/liujian/nvidia/driver:550-5.15.0-131-generic-ubuntu22.04 
  docker.io/ollama/ollama:0.5.7 , hub.kubesphere.com.cn/redscholar/ollama/ollama:0.5.7 
  docker.io/yidadaa/chatgpt-next-web:v2.16.0 , hub.kubesphere.com.cn/redscholar/yidadaa/chatgpt-next-web:v2.16.0 
+ nvcr.io/nvidia/cloud-native/k8s-driver-manager:v0.6.5 , hub.kubesphere.com.cn/nvidia/cloud-native/k8s-driver-manager:v0.6.5 
