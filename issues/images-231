@@ -1,0 +1,2 @@
+docker.io/ollama/ollama:0.5.7 => hub.kubesphere.com.cn/redscholar/ollama/ollama:0.5.7
+docker.io/yidadaa/chatgpt-next-web:v2.16.0 => hub.kubesphere.com.cn/redscholar/yidadaa/chatgpt-next-web:v2.16.0
