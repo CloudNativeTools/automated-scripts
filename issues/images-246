@@ -1,6 +1,0 @@
-gcr.io/google-containers/pause:latest => hub.kubesphere.com.cn/kubesphere/chaos-pause:latest
-ghcr.io/chaos-mesh/chaos-daemon:v2.6.1 => hub.kubesphere.com.cn/kubesphere/chaos-daemon:v2.6.1
-ghcr.io/chaos-mesh/chaos-dashboard:v2.6.1 => hub.kubesphere.com.cn/kubesphere/chaos-dashboard:v2.6.1
-ghcr.io/chaos-mesh/chaos-kernel:v2.6.1 => hub.kubesphere.com.cn/kubesphere/chaos-kernel:v2.6.1
-ghcr.io/chaos-mesh/chaos-coredns:v0.2.6 => hub.kubesphere.com.cn/kubesphere/chaos-coredns:v0.2.6
-ghcr.io/chaos-mesh/chaos-dlv:v2.6.1 => hub.kubesphere.com.cn/kubesphere/chaos-dlv:v2.6.1

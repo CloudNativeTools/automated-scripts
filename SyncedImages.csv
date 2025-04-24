@@ -295,3 +295,9 @@
  registry.k8s.io/kubernetes/kube-scheduler:v1.28.3 , registry.cn-beijing.aliyuncs.com/kubesphereio/kube-scheduler:v1.28.3 
  registry.k8s.io/ingress-nginx/controller:v1.12.1 , docker.io/kubesphere/ingress-nginx-controller:v1.12.1 
  hub.kubesphere.com.cn/redscholar/kubesphere/chaos-apiserver:v2.7.0 , docker.io/kubesphere/chaos-apiserver:v2.7.0 
+ gcr.io/google-containers/pause:latest , hub.kubesphere.com.cn/kubesphere/chaos-pause:latest 
+ ghcr.io/chaos-mesh/chaos-daemon:v2.6.1 , hub.kubesphere.com.cn/kubesphere/chaos-daemon:v2.6.1 
+ ghcr.io/chaos-mesh/chaos-dashboard:v2.6.1 , hub.kubesphere.com.cn/kubesphere/chaos-dashboard:v2.6.1 
+ ghcr.io/chaos-mesh/chaos-kernel:v2.6.1 , hub.kubesphere.com.cn/kubesphere/chaos-kernel:v2.6.1 
+ ghcr.io/chaos-mesh/chaos-coredns:v0.2.6 , hub.kubesphere.com.cn/kubesphere/chaos-coredns:v0.2.6 
+ ghcr.io/chaos-mesh/chaos-dlv:v2.6.1 , hub.kubesphere.com.cn/kubesphere/chaos-dlv:v2.6.1 
