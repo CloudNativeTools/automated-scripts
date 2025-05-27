@@ -302,3 +302,4 @@
  ghcr.io/chaos-mesh/chaos-coredns:v0.2.6 , hub.kubesphere.com.cn/kubesphere/chaos-coredns:v0.2.6 
  ghcr.io/chaos-mesh/chaos-dlv:v2.6.1 , hub.kubesphere.com.cn/kubesphere/chaos-dlv:v2.6.1 
  registry.cn-beijing.aliyuncs.com/kse/ingress-utils-controller-manager:v1.0.1-alpha.0 , docker.io/kubesphere/ingress-utils-controller-manager:v1.0.1-alpha.0 
+ registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.2 , docker.io/kubespheredev/kube-webhook-certgen:v1.5.2 
