@@ -306,3 +306,4 @@
  registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0 , docker.io/kubesphere/kube-state-metrics:v2.15.0 
  registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.2 , docker.io/kubesphere/kube-webhook-certgen:v1.5.2 
  docker.io/kubesphere/builder-maven:v3.2.0 , docker.io/kubesphere/builder-maven:v4.1.4 
+ docker.io/kubesphere/builder-nodejs:v3.2.0 , docker.io/kubesphere/builder-nodejs:v4.1.4 
