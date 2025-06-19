@@ -307,3 +307,5 @@
  registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.5.2 , docker.io/kubesphere/kube-webhook-certgen:v1.5.2 
  docker.io/kubesphere/builder-maven:v3.2.0 , docker.io/kubesphere/builder-maven:v4.1.4 
  docker.io/kubesphere/builder-nodejs:v3.2.0 , docker.io/kubesphere/builder-nodejs:v4.1.4 
+ docker.io/kubesphere/servicemesh-controller-manager:main , docker.io/kubesphere/servicemesh-controller-manager:v1.0.2-alpha.1 
+ docker.io/kubesphere/servicemesh-apiserver:main , docker.io/kubesphere/servicemesh-apiserver:v1.0.2-alpha.1 
