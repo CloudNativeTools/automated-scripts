@@ -1,0 +1,1 @@
+k8s.gcr.io/pause:3.2 => hub.kubesphere.com.cn/kubesphere/chaos-pause:latest
