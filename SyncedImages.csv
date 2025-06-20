@@ -309,3 +309,4 @@
  docker.io/kubesphere/builder-nodejs:v3.2.0 , docker.io/kubesphere/builder-nodejs:v4.1.4 
  docker.io/kubesphere/servicemesh-controller-manager:main , docker.io/kubesphere/servicemesh-controller-manager:v1.0.2-alpha.1 
  docker.io/kubesphere/servicemesh-apiserver:main , docker.io/kubesphere/servicemesh-apiserver:v1.0.2-alpha.1 
+ k8s.gcr.io/pause:3.2 , hub.kubesphere.com.cn/kubesphere/chaos-pause:latest 
