@@ -1,2 +1,0 @@
-docker.io/kubesphere/ks-extension-upgrade:v0.3.1 => hub.kubesphere.com.cn/kubesphere/ks-extension-upgrade:v0.3.1
-docker.io/kubesphere/wiz-telemetry-console:v2.0.0 => hub.kubesphere.com.cn/kubesphere/wiz-telemetry-console:v2.0.0

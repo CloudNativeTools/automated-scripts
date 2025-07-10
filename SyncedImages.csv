@@ -311,3 +311,5 @@
  docker.io/kubesphere/servicemesh-apiserver:main , docker.io/kubesphere/servicemesh-apiserver:v1.0.2-alpha.1 
  k8s.gcr.io/pause:3.2 , hub.kubesphere.com.cn/kubesphere/chaos-pause:latest 
  docker.io/kubesphere/whizard-telemetry-apiserver:v1.5.0 , hub.kubesphere.com.cn/kubesphere/whizard-telemetry-apiserver:v1.5.0 
+ docker.io/kubesphere/ks-extension-upgrade:v0.3.1 , hub.kubesphere.com.cn/kubesphere/ks-extension-upgrade:v0.3.1 
+ docker.io/kubesphere/wiz-telemetry-console:v2.0.0 , hub.kubesphere.com.cn/kubesphere/wiz-telemetry-console:v2.0.0 
