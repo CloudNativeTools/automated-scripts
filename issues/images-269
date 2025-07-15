@@ -1,0 +1,1 @@
+gcr.io/cadvisor/cadvisor:v0.49.1 => docker.io/kubesphere/cadvisor:v0.49.1
