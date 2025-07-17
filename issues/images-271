@@ -1,0 +1,1 @@
+hub.kubesphere.com.cn/redscholar/prow-syncimage:dev  => docker.io/kubesphere/prow-syncimage:v1.0.0
